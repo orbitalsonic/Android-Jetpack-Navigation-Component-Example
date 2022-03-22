@@ -15,4 +15,9 @@
         android:name="com.orbitalsonic.navigationcomponentexample.ViewBalanceFragment"
         android:label="fragment_view_balance"
         tools:layout="@layout/fragment_view_balance" />
+    <fragment
+        android:id="@+id/viewTransactionFragment"
+        android:name="com.orbitalsonic.navigationcomponentexample.ViewTransactionFragment"
+        android:label="fragment_view_transaction"
+        tools:layout="@layout/fragment_view_transaction" />
 </navigation>
