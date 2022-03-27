@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavArgs
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 
 
@@ -45,6 +47,15 @@ class SendCashFragment : Fragment() {
         // get args using bundle
 //        val receiverName = arguments?.getString("name")
 //        tvReceiver.text = "Send cash to $receiverName"
+
+        view.findViewById<Button>(R.id.btn_send).setOnClickListener {
+
+            if (etAmount.text.toString().isEmpty())
+                return@setOnClickListener
+
+            val action = SendCashFragmentDirections.actionSendCashFragmentToConfirmDialogFragment(receiverName,etAmount.text.toString().toLong())
+            findNavController().navigate(action)
+        }
 
     }
 }

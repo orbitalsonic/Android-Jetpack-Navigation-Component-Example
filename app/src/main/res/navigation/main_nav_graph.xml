@@ -42,13 +42,13 @@
         android:name="com.orbitalsonic.navigationcomponentexample.ViewTransactionFragment"
         android:label="fragment_view_transaction"
         tools:layout="@layout/fragment_view_transaction" >
-        <action
-            android:id="@+id/action_viewTransactionFragment_to_sendCashFragment"
-            app:destination="@id/sendCashFragment" >
-            <argument
-                android:name="amount"
-                android:defaultValue="200L" />
-        </action>
+<!--        <action-->
+<!--            android:id="@+id/action_viewTransactionFragment_to_sendCashFragment"-->
+<!--            app:destination="@id/sendCashFragment" >-->
+<!--            <argument-->
+<!--                android:name="amount"-->
+<!--                android:defaultValue="200L" />-->
+<!--        </action>-->
     </fragment>
     <fragment
         android:id="@+id/chooseReceiverFragment"
@@ -75,5 +75,21 @@
             android:name="amount"
             app:argType="long"
             />
+        <action
+            android:id="@+id/action_sendCashFragment_to_confirmDialogFragment"
+            app:destination="@id/confirmDialogFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/confirmDialogFragment"
+        android:name="com.orbitalsonic.navigationcomponentexample.ConfirmDialogFragment"
+        android:label="fragment_confirm_dialog"
+        tools:layout="@layout/fragment_confirm_dialog" >
+        <argument
+            android:name="receiverName"
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            app:argType="long"
+            />
+    </dialog>
 </navigation>
