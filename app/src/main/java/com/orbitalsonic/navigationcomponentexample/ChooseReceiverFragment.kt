@@ -55,7 +55,7 @@ class ChooseReceiverFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
-
+            findNavController().popBackStack()
         }
     }
 }

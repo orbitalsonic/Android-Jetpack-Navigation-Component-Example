@@ -57,5 +57,13 @@ class SendCashFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        view.findViewById<Button>(R.id.btn_done).setOnClickListener {
+            val action = SendCashFragmentDirections.actionSendCashFragmentToHomeFragment()
+            findNavController().navigate(action)
+        }
+        view.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
+            findNavController().popBackStack(R.id.homeFragment,true)
+        }
+
     }
 }
