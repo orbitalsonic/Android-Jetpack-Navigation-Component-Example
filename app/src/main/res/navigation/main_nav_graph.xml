@@ -41,10 +41,39 @@
         android:id="@+id/viewTransactionFragment"
         android:name="com.orbitalsonic.navigationcomponentexample.ViewTransactionFragment"
         android:label="fragment_view_transaction"
-        tools:layout="@layout/fragment_view_transaction" />
+        tools:layout="@layout/fragment_view_transaction" >
+        <action
+            android:id="@+id/action_viewTransactionFragment_to_sendCashFragment"
+            app:destination="@id/sendCashFragment" >
+            <argument
+                android:name="amount"
+                android:defaultValue="200L" />
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/chooseReceiverFragment"
         android:name="com.orbitalsonic.navigationcomponentexample.ChooseReceiverFragment"
         android:label="fragment_choose_receiver"
-        tools:layout="@layout/fragment_choose_receiver" />
+        tools:layout="@layout/fragment_choose_receiver" >
+        <action
+            android:id="@+id/action_chooseReceiverFragment_to_sendCashFragment"
+            app:destination="@id/sendCashFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/sendCashFragment"
+        android:name="com.orbitalsonic.navigationcomponentexample.SendCashFragment"
+        android:label="fragment_send_cash"
+        tools:layout="@layout/fragment_send_cash" >
+        <argument
+            android:name="receiverName"
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            app:argType="long"
+            />
+    </fragment>
 </navigation>
