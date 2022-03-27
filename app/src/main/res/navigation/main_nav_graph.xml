@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.orbitalsonic.navigationcomponentexample.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_viewBalanceFragment"
@@ -35,12 +35,12 @@
     <fragment
         android:id="@+id/viewBalanceFragment"
         android:name="com.orbitalsonic.navigationcomponentexample.ViewBalanceFragment"
-        android:label="fragment_view_balance"
+        android:label="Balance"
         tools:layout="@layout/fragment_view_balance" />
     <fragment
         android:id="@+id/viewTransactionFragment"
         android:name="com.orbitalsonic.navigationcomponentexample.ViewTransactionFragment"
-        android:label="fragment_view_transaction"
+        android:label="Transaction"
         tools:layout="@layout/fragment_view_transaction" >
 <!--        <action-->
 <!--            android:id="@+id/action_viewTransactionFragment_to_sendCashFragment"-->
@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/chooseReceiverFragment"
         android:name="com.orbitalsonic.navigationcomponentexample.ChooseReceiverFragment"
-        android:label="fragment_choose_receiver"
+        android:label="Choose Receiver"
         tools:layout="@layout/fragment_choose_receiver" >
         <action
             android:id="@+id/action_chooseReceiverFragment_to_sendCashFragment"
@@ -66,7 +66,7 @@
     <fragment
         android:id="@+id/sendCashFragment"
         android:name="com.orbitalsonic.navigationcomponentexample.SendCashFragment"
-        android:label="fragment_send_cash"
+        android:label="Send Cash - {receiverName}"
         tools:layout="@layout/fragment_send_cash" >
         <argument
             android:name="receiverName"
@@ -91,7 +91,7 @@
     <dialog
         android:id="@+id/confirmDialogFragment"
         android:name="com.orbitalsonic.navigationcomponentexample.ConfirmDialogFragment"
-        android:label="fragment_confirm_dialog"
+        android:label="Confirm Dialog"
         tools:layout="@layout/fragment_confirm_dialog" >
         <argument
             android:name="receiverName"
