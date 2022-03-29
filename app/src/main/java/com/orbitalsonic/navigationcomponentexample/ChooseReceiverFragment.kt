@@ -1,12 +1,16 @@
 package com.orbitalsonic.navigationcomponentexample
 
+import android.app.PendingIntent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDeepLinkBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 
@@ -36,6 +40,21 @@ class ChooseReceiverFragment : Fragment() {
 
             val receiverName = etReceiverName.text.toString()
 
+//            val pendingIntent = NavDeepLinkBuilder(requireContext())
+//                .setGraph(R.navigation.main_nav_graph)
+//                .setDestination(R.id.sendCashFragment)
+//                .setArguments(SendCashFragmentArgs("Yaqoob Bhatti",786L).toBundle())
+//                .createPendingIntent()
+
+            val pendingIntent = findNavController()
+                .createDeepLink()
+                .setGraph(R.navigation.main_nav_graph)
+                .setDestination(R.id.sendCashFragment)
+                .setArguments(SendCashFragmentArgs(receiverName,786L).toBundle())
+                .createPendingIntent()
+
+            showNotification(pendingIntent,receiverName)
+
             val action = ChooseReceiverFragmentDirections.actionChooseReceiverFragmentToSendCashFragment(receiverName,300)
             findNavController().navigate(action)
 
@@ -57,5 +76,17 @@ class ChooseReceiverFragment : Fragment() {
         view.findViewById<Button>(R.id.btn_cancel).setOnClickListener {
             findNavController().popBackStack()
         }
+    }
+
+    private fun showNotification(pendingIntent: PendingIntent, receiverName: String) {
+        val notification = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_baseline_notifications_24)
+            .setContentTitle("Complete Transaction")
+            .setContentText("Send money to $receiverName")
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+            .build()
+
+        NotificationManagerCompat.from(requireContext()).notify(1002,notification)
     }
 }

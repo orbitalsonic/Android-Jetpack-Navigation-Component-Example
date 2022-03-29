@@ -74,14 +74,13 @@
         android:id="@+id/sendCashFragment"
         android:name="com.orbitalsonic.navigationcomponentexample.SendCashFragment"
         android:label="Send Cash - {receiverName}"
-        tools:layout="@layout/fragment_send_cash" >
+        tools:layout="@layout/fragment_send_cash">
         <argument
             android:name="receiverName"
             app:argType="string" />
         <argument
             android:name="amount"
-            app:argType="long"
-            />
+            app:argType="long" />
         <action
             android:id="@+id/action_sendCashFragment_to_confirmDialogFragment"
             app:destination="@id/confirmDialogFragment" />
@@ -94,6 +93,9 @@
             app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="www.navigationcomponent.com/{receiverName}/{amount}" />
     </fragment>
     <dialog
         android:id="@+id/confirmDialogFragment"
