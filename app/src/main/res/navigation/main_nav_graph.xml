@@ -101,4 +101,9 @@
             app:argType="long"
             />
     </dialog>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.orbitalsonic.navigationcomponentexample.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_setting" />
 </navigation>

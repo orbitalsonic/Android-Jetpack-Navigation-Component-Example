@@ -37,6 +37,10 @@ class SendCashFragment : Fragment() {
 
         tvReceiver = view.findViewById(R.id.tv_receiver)
         etAmount = view.findViewById(R.id.et_amount)
+        etAmount.setText(SampleData.defaultAmount.value.toString())
+        SampleData.defaultAmount.observe(viewLifecycleOwner){
+            etAmount.setText(it.toString())
+        }
 
         // get args using safe args
         val receiverName = args.receiverName
