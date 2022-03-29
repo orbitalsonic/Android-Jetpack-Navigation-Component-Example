@@ -15,8 +15,7 @@ Setup BottomNavigation & Navigation Drawer
 Implementing Implicit & Explicit Deep Links
 
 # Credit
-U4Universe
-https://www.youtube.com/watch?v=jxfsrAB9zrQ&list=PLj76U7gxVixTYE8n2X_z50nP3O8TqyBb3
+[U4Universe](https://www.youtube.com/watch?v=jxfsrAB9zrQ&list=PLj76U7gxVixTYE8n2X_z50nP3O8TqyBb3)
 
 # Screenshots
 ![alt text](https://github.com/orbitalsonic/Android-Jetpack-Navigation-Component-Example/blob/master/Scnreenshots/Screenshot.png?raw=true)
