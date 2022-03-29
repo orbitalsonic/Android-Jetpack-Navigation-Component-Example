@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 
 class SettingsFragment : Fragment() {
@@ -33,7 +34,8 @@ class SettingsFragment : Fragment() {
 
         }
        view.findViewById<Button>(R.id.btn_about_app).setOnClickListener {
-
+           val action = MainNavGraphDirections.actionGlobalAboutFragment()
+           findNavController().navigate(action)
         }
 
     }
