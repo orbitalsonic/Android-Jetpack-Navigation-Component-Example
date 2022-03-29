@@ -10,14 +10,12 @@ import android.widget.EditText
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavDeepLinkBuilder
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 
 
 class ChooseReceiverFragment : Fragment() {
 
-    private lateinit var etReceiverName:EditText
+    private lateinit var etReceiverName: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,15 +48,19 @@ class ChooseReceiverFragment : Fragment() {
                 .createDeepLink()
                 .setGraph(R.navigation.main_nav_graph)
                 .setDestination(R.id.sendCashFragment)
-                .setArguments(SendCashFragmentArgs(receiverName,786L).toBundle())
+                .setArguments(SendCashFragmentArgs(receiverName, 786L).toBundle())
                 .createPendingIntent()
 
-            showNotification(pendingIntent,receiverName)
+            showNotification(pendingIntent, receiverName)
 
-            val action = ChooseReceiverFragmentDirections.actionChooseReceiverFragmentToSendCashFragment(receiverName,300)
+            val action =
+                ChooseReceiverFragmentDirections.actionChooseReceiverFragmentToSendCashFragment(
+                    receiverName,
+                    300
+                )
             findNavController().navigate(action)
 
-         //   send data using bundle
+            //   send data using bundle
 //            val navOption = NavOptions.Builder()
 //                .setEnterAnim(R.anim.slide_in_right)
 //                .setEnterAnim(R.anim.slide_out_left)
@@ -87,6 +89,6 @@ class ChooseReceiverFragment : Fragment() {
             .setAutoCancel(true)
             .build()
 
-        NotificationManagerCompat.from(requireContext()).notify(1002,notification)
+        NotificationManagerCompat.from(requireContext()).notify(1002, notification)
     }
 }
